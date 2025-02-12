@@ -5,11 +5,12 @@ import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import { getLocalStorage, setLocalStorage } from "./utils/localStorage";
 
 const App = () => {
- 
+ const [user, setUser] = useState(null)
 
   return (
     <>
-      <Login />
+    {!user ?       <Login />
+ : ""}
       {/* <EmployeeDashboard/> */}
       {/* <AdminDashboard/> */}
     </>
