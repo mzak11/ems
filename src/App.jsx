@@ -10,16 +10,16 @@ const App = () => {
   const [loggedInUserData, setLoggedInUserData] = useState(null);
   const authData = useContext(AuthContext);
 
-  useEffect(() => {
-    getLocalStorage()
-    setLocalStorage()
-    if (authData) {
-      const loggedInUser = localStorage.getItem("loggedInUser");
-      if (loggedInUser) {
-        setUser(loggedInUser.role);
-      }
+  useEffect(()=>{
+    // setLocalStorage()
+    const loggedInUser = localStorage.getItem('loggedInUser')
+    
+    if(loggedInUser){
+      const authData = JSON.parse(loggedInUser)
+      setUser(authData.role)
+      setLoggedInUserData(authData.data)
     }
-  }, []);
+  }, [authData]);
 
   const handleLogin = (email, password) => {
     console.log("Attempting login with:", email, password);
