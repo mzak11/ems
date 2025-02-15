@@ -1,6 +1,7 @@
 const employees = [
   {
     id: 1,
+    fname: "Amit",
     email: "employee1@example.com",
     password: "123",
     tasks: [
@@ -12,7 +13,7 @@ const employees = [
         active: true,
         new_task: false,
         completed: false,
-        failed: false,
+        failed: false
       },
       {
         title: "Write API docs",
@@ -22,12 +23,19 @@ const employees = [
         active: false,
         new_task: true,
         completed: false,
-        failed: false,
-      },
+        failed: false
+      }
     ],
+    taskNumbers: {
+      active: 1,
+      new_task: 1,
+      completed: 0,
+      failed: 0
+    }
   },
   {
     id: 2,
+    fname: "Priya",
     email: "employee2@example.com",
     password: "123",
     tasks: [
@@ -39,7 +47,7 @@ const employees = [
         active: true,
         new_task: false,
         completed: false,
-        failed: false,
+        failed: false
       },
       {
         title: "Market research",
@@ -49,7 +57,7 @@ const employees = [
         active: false,
         new_task: true,
         completed: false,
-        failed: false,
+        failed: false
       },
       {
         title: "Team meeting",
@@ -59,12 +67,19 @@ const employees = [
         active: true,
         new_task: false,
         completed: true,
-        failed: false,
-      },
+        failed: false
+      }
     ],
+    taskNumbers: {
+      active: 2,
+      new_task: 1,
+      completed: 1,
+      failed: 0
+    }
   },
   {
     id: 3,
+    fname: "Rahul",
     email: "employee3@example.com",
     password: "123",
     tasks: [
@@ -76,7 +91,7 @@ const employees = [
         active: true,
         new_task: false,
         completed: false,
-        failed: false,
+        failed: false
       },
       {
         title: "Code review",
@@ -86,7 +101,7 @@ const employees = [
         active: false,
         new_task: true,
         completed: false,
-        failed: false,
+        failed: false
       },
       {
         title: "Write blog post",
@@ -96,90 +111,22 @@ const employees = [
         active: false,
         new_task: false,
         completed: true,
-        failed: false,
-      },
+        failed: false
+      }
     ],
-  },
-  {
-    id: 4,
-    email: "employee4@example.com",
-    password: "123",
-    tasks: [
-      {
-        title: "Update database schema",
-        description: "Optimize database schema for better performance",
-        date: "2025-02-20",
-        category: "Database",
-        active: true,
-        new_task: false,
-        completed: false,
-        failed: false,
-      },
-      {
-        title: "Fix UI bugs",
-        description: "Resolve CSS and layout issues reported by QA",
-        date: "2025-02-21",
-        category: "Frontend",
-        active: false,
-        new_task: true,
-        completed: false,
-        failed: false,
-      },
-      {
-        title: "Security audit",
-        description: "Conduct a security audit for vulnerabilities",
-        date: "2025-02-22",
-        category: "Security",
-        active: false,
-        new_task: false,
-        completed: false,
-        failed: true,
-      },
-    ],
-  },
-  {
-    id: 5,
-    email: "employee5@example.com",
-    password: "123",
-    tasks: [
-      {
-        title: "Deploy new feature",
-        description: "Deploy the latest feature update to production",
-        date: "2025-02-25",
-        category: "DevOps",
-        active: true,
-        new_task: false,
-        completed: false,
-        failed: false,
-      },
-      {
-        title: "User feedback analysis",
-        description: "Analyze feedback from customers and report insights",
-        date: "2025-02-26",
-        category: "Customer Support",
-        active: false,
-        new_task: true,
-        completed: false,
-        failed: false,
-      },
-      {
-        title: "Optimize performance",
-        description: "Improve website performance by reducing load times",
-        date: "2025-02-27",
-        category: "Optimization",
-        active: false,
-        new_task: false,
-        completed: true,
-        failed: false,
-      },
-    ],
-  },
+    taskNumbers: {
+      active: 1,
+      new_task: 1,
+      completed: 1,
+      failed: 0
+    }
+  }
 ];
 
 const admin = {
   id: 1,
   email: "admin@example.com",
-  password: "123",
+  password: "123"
 };
 
 
