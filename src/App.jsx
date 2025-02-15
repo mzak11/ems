@@ -11,35 +11,51 @@ const App = () => {
   const authData = useContext(AuthContext);
 
   useEffect(() => {
+    getLocalStorage()
+    setLocalStorage()
     if (authData) {
       const loggedInUser = localStorage.getItem("loggedInUser");
       if (loggedInUser) {
         setUser(loggedInUser.role);
       }
     }
-  }, [authData]);
+  }, []);
 
   const handleLogin = (email, password) => {
-    console.log(email, password);
+    console.log("Attempting login with:", email, password);
+  
+    // Check if Admin
     if (email === "admin@me.com" && password === "123") {
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
       setUser("admin");
-    } else if (authData) {
-      const employee = authData.employees.find(
-        (e) => e.email == email && password == e.password
+      return;
+    }
+  
+    // Ensure authData is valid and contains employees
+    if (!authData || !authData.employees) {
+      console.error("authData is missing or does not contain employees.");
+      alert("Invalid Credentials");
+      return;
+    }
+  
+    // Find employee in the list
+    const employee = authData.employees.find(
+      (e) => e.email === email && e.password === password
+    );
+  
+    if (employee) {
+      localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify({ role: "employee", user: employee })
       );
-      if (employee) {
-        localStorage.setItem(
-          "loggedInUser",
-          JSON.stringify({ role: "employee" })
-        );
-        setLoggedInUserData(employee)
-        setUser("employee");
-      }
+      setLoggedInUserData(employee);
+      setUser("employee");
+      console.log("Login Successful:", employee);
     } else {
       alert("Invalid Credentials");
     }
   };
+  
 
   return (
     <>
