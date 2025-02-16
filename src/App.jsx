@@ -11,8 +11,8 @@ const App = () => {
   const authData = useContext(AuthContext);
 
   useEffect(() => {
-    // getLocalStorage()
-    // setLocalStorage()
+    getLocalStorage()
+    setLocalStorage()
     const loggedInUser = localStorage.getItem("loggedInUser");
 
     console.log("Checking localStorage:", loggedInUser); // ✅ Debugging

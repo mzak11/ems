@@ -7,10 +7,10 @@ const NewTask = ({data}) => {
     //   setShowFullText(!showFullText);
     // };
   return (
-    <div className="flex-shrink-0 h-[90%] p-5 w-[300px] bg-gray-700 rounded-xl flex flex-col">
+    <div className="flex-shrink-0 h-[90%] p-5 w-[300px] bg-white shadow-2xl rounded-xl  flex flex-col">
     {/* Task Priority & Date */}
     <div className="flex text-sm justify-between items-center">
-      <h3 className="bg-red-600 px-3 py-1 rounded">{data.category}</h3>
+      <h3 className="bg-gray-700 px-3 py-1 rounded text-gray-100">{data.category}</h3>
       <h1 className="font-semibold text-sm">{data.date}</h1>
     </div>
 
@@ -24,8 +24,8 @@ const NewTask = ({data}) => {
 
     {/* Sticky Buttons */}
     <div className="mt-2 flex justify-center gap-3 ">
-      <button className="bg-green-600 py-2 px-3 text-sm w-full rounded">
-        Accept Task
+      <button className="bg-blue-400 py-2 px-3 text-sm w-full rounded">
+        New Task
       </button>
       
     </div>
