@@ -7,7 +7,7 @@ const employees = [
     tasks: [
       {
         title: "Fix login bug",
-        description: "Resolve authentication issue for users",
+        description: "Resolve authentication issue for users ",
         date: "2025-02-10",
         category: "Development",
         active: true,

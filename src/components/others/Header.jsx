@@ -1,18 +1,17 @@
 import React,{useState} from 'react'
 
-const Header = () => {
-  localStorage.clear()
+const Header = (props) => {
+  const [isLoggedOut, setIsLoggedOut] = useState(false);
 
-const logOutUser =()=>{
-  localStorage.setItem('loggedInUser','')
-  window.location.reload()
-}
-  // const [username, setUsername] = useState('')
-  // if(!data){
-  //   setUsername('admin')
-  // }else {
-  //   setUsername(data.fname)
-  // }
+  const logOutUser = () => {
+    localStorage.removeItem("loggedInUser"); // Remove user data from localStorage
+    props.changeUser(""); // Reset user state
+    setIsLoggedOut(true); // Trigger login component rendering
+  };
+
+  if (isLoggedOut) {
+    return <Login />; // Render Login component after logout
+  }
   return (
     <div className='flex items-end justify-between '>
       <h1 className='font-medium text-2xl'>Hello  <br /> <span className='font-semibold text-3xl'>username👋</span> </h1>

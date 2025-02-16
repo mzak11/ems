@@ -12,16 +12,16 @@ const TaskList = ({ data }) => {
     >
       {data.tasks.map((elem) => {
         if (elem.active) {
-          return <AcceptTask key={`active-${elem.id}`} />;
+          return <AcceptTask key={`active-${elem.id}`} data={elem}/>;
         }
         if (elem.new_task) {
-          return <NewTask key={`new-${elem.id}`} />;
+          return <NewTask key={`new-${elem.id}`} data={elem}/>;
         }
         if (elem.completed) {
-          return <CompleteTask key={`completed-${elem.id}`} />;
+          return <CompleteTask key={`completed-${elem.id}`} data={elem}/>;
         }
         if (elem.failed) {
-          return <FailedTask key={`failed-${elem.id}`} />;
+          return <FailedTask key={`failed-${elem.id}`} data={elem}/>;
         }
         return null; // Ensure all paths return something
       })}
