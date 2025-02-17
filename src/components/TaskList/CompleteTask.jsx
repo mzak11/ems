@@ -24,7 +24,7 @@ const  CompleteTask = ({data}) => {
 
     {/* Sticky Buttons */}
     <div className="mt-2 flex justify-center gap-3 ">
-      <button className="bg-green-600 py-2 px-3 text-sm w-full rounded">
+      <button className="border-[1.5px] text-green-600 border-green-600 py-2 px-3 text-sm w-full rounded hover:bg-green-200 transition">
         Complete
       </button>
       

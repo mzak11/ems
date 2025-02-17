@@ -22,10 +22,10 @@ const AcceptTask = ({ data }) => {
 
       {/* Sticky Buttons */}
       <div className="mt-2 flex justify-between gap-2 ">
-        <button className="bg-green-600 py-2  text-sm w-full rounded">
+        <button className=" border-[1.5px] text-green-600 border-green-600 py-2  text-sm w-full rounded hover:bg-green-200 transition">
           Mark Completed
         </button>
-        <button className="bg-red-600 py-2 px-3 text-sm w-full rounded">
+        <button className="border-[1.5px] text-red-600 border-red-600 py-2 px-3 text-sm w-full rounded hover:bg-red-200 transition">
           Mark Failed
         </button>
       </div>

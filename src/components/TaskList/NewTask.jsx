@@ -24,8 +24,8 @@ const NewTask = ({data}) => {
 
     {/* Sticky Buttons */}
     <div className="mt-2 flex justify-center gap-3 ">
-      <button className="bg-blue-400 py-2 px-3 text-sm w-full rounded">
-        New Task
+      <button className=" border-[1.5px] text-blue-400 border-blue-400 py-2 px-3 text-sm w-full rounded hover:bg-blue-200 transition">
+        Accept Task
       </button>
       
     </div>

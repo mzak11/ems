@@ -102,7 +102,7 @@ console.log(data);
           ></textarea>
           <button
             type="submit"
-            className="w-full bg-emerald-600 hover:bg-emerald-700 p-3 rounded-xl text-lg transition"
+            className="w-full text-gray-100 bg-emerald-600 hover:bg-emerald-700 p-3 rounded-xl text-lg transition"
           >
             Create Task
           </button>

@@ -24,7 +24,7 @@ const FailedTask = ({data}) => {
 
     {/* Sticky Buttons */}
     <div className="mt-2 flex justify-center gap-3 ">
-      <button className="bg-red-600 py-2 px-3 text-sm w-full rounded">
+      <button className="text-red-600 border-[1.5px] border-red-600 py-2 px-3 text-sm w-full rounded">
         Failed 
       </button>
       
