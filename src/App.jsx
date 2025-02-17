@@ -8,7 +8,7 @@ import { getLocalStorage, setLocalStorage } from "./utils/localStorage";
 const App = () => {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
-  const authData = useContext(AuthContext);
+  const [userData,setUserData] = useContext(AuthContext);
 
   useEffect(() => {
     getLocalStorage()
@@ -18,9 +18,9 @@ const App = () => {
     console.log("Checking localStorage:", loggedInUser); // ✅ Debugging
 
     if (loggedInUser) {
-      const authData = JSON.parse(loggedInUser);
-      setUser(authData.role);
-      setLoggedInUserData(authData.user || null);
+      const userData = JSON.parse(loggedInUser);
+      setUser(userData.role);
+      setLoggedInUserData(userData.user || null);
     }
   }, []); // ✅ Only run once on mount
 
@@ -36,15 +36,15 @@ const App = () => {
       return;
     }
 
-    // Ensure authData is valid and contains employees
-    if (!authData || !authData.employees) {
-      console.error("authData is missing or does not contain employees.");
+    // Ensure userData is valid and contains employees
+    if (!userData || !userData) {
+      console.error("userData is missing or does not contain employees.");
       alert("Invalid Credentials");
       return;
     }
 
     // Find employee in the list
-    const employee = authData.employees.find(
+    const employee = userData.find(
       (e) => e.email === email && e.password === password
     );
 
@@ -60,21 +60,21 @@ const App = () => {
   };
 
 //  useEffect(() => {
-//   if(authData){
+//   if(userData){
 //  const loggedInUser=localStorage.getItem('loggedInUser')
 //  if(loggedInUser){
 //   setUser(loggedInUser.role)
 //  }
 //   }
   
-//  }, [authData])
+//  }, [userData])
  
 
 //   const handleLogin=(email,password)=>{
 //     if(email == 'admin@me.com' && password =='123'){
 //       setUser('admin')
 //       localStorage.setItem('loggedInUser',JSON.stringify({role:"admin"}))
-//     }else if(authData && authData.employees.find((e)=> email == e.email && password ==e.password)){
+//     }else if(userData && userData.employees.find((e)=> email == e.email && password ==e.password)){
 //         setUser('employee')
 //         localStorage.setItem('loggedInUser',JSON.stringify({role:"employee"}))
 

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
 const AllTask = () => {
-  const authData = useContext(AuthContext);
+  const [userData,setUserData] = useContext(AuthContext);
 
   return (
     <div className=" p-6 shadow-2xl bg-white rounded-xl mt-5">
@@ -18,7 +18,7 @@ const AllTask = () => {
             </tr>
           </thead>
           <tbody>
-            {authData.employees.map((elem, idx) => (
+            {userData.map((elem, idx) => (
               <tr
                 key={idx}
                 className="text-center border border-emerald-400 hover:bg-gray-200 transition"
