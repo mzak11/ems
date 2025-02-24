@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import BgImg from "../../assets/bg-hero.png";
 const Login = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,18 +13,57 @@ const Login = ({ handleLogin }) => {
   };
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-100">
-      <div className="flex w-3/4 h-4/5 bg-white shadow-xl rounded-2xl overflow-hidden">
-        {/* Left Column - Login Card */}
-        <div className="w-1/2 flex flex-col items-center justify-center p-10">
-          <h2 className="text-3xl font-bold text-emerald-600 mb-3">Welcome Back!</h2>
-          <p className="text-gray-500 mb-6">Login to continue your journey</p>
+    <div
+      className="flex h-screen w-screen items-center justify-center bg-gradient-to-r from-gray-100 to-gray-100"
+      style={{
+        backgroundImage: `url(${BgImg})`, // Apply the image as background
+        backgroundSize: "cover  ",
+        backgroundRepeat: "no-repeat", // Make the image cover the entire div
+        backgroundPosition: "center", // Center the image}}
+      }}
+    >
+      <div className="w-1/2 bg-transparent from-gray-100 to-gray-100 flex flex-col items-center justify-center p-10">
+        <motion.h3
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          className="text-5xl font-bold text-gray-700 text-center mb-6"
+          style={{
+            fontFamily: "'Merriweather', serif", // Apply Merriweather font style
+            lineHeight: "1.3", // Add line-height (spacing between lines of text)
+          }}
+        >
+          Employee Task Manager.
+        </motion.h3>
+
+        <p
+          className="text-lg font-bold text-emerald-600 text-center mb-8"
+          style={{ fontFamily: "'Merriweather', serif" }} // Apply Merriweather font style
+        >
+          "Streamline your workflow, achieve more. Manage tasks with ease!"
+        </p>
+      </div>
+      <div className="flex w-2/4 h-4/5 bg-white shadow-2xl rounded-2xl mr-5 overflow-hidden">
+        {/* Right Column - Login Form */}
+        <div className="w-full flex flex-col items-center justify-center px-30">
+          <h2
+            className="text-3xl font-bold text-emerald-600 mb-4"
+            style={{ fontFamily: "'Merriweather', serif" }} // Apply Merriweather font style
+          >
+            Welcome Back!
+          </h2>
+          <p
+            className="text-gray-600 text-center text-lg mb-8"
+            style={{ fontFamily: "'Merriweather', serif" }} // Apply Merriweather font style
+          >
+            Login to manage your tasks and productivity.
+          </p>
+
           <form onSubmit={submitHandler} className="flex flex-col w-full">
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="outline-none bg-transparent placeholder-gray-400 border-[1.5px] border-emerald-600 py-3 text-xl px-5 rounded-xl mb-3"
+              className="outline-none bg-gray-100 placeholder-gray-400 border-[1.5px] border-emerald-600 py-3 text-xl px-5 rounded-xl mb-4"
               type="email"
               placeholder="Enter Your Email"
             />
@@ -32,7 +71,7 @@ const Login = ({ handleLogin }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="outline-none bg-transparent placeholder-gray-400 border-[1.5px] border-emerald-600 py-3 text-xl px-5 rounded-xl mb-4"
+              className="outline-none bg-gray-100 placeholder-gray-400 border-[1.5px] border-emerald-600 py-3 text-xl px-5 rounded-xl mb-6"
               type="password"
               placeholder="Enter Your Password"
             />
@@ -40,15 +79,16 @@ const Login = ({ handleLogin }) => {
               Login
             </button>
           </form>
-        </div>
 
-        {/* Right Column - Dribbling Ball Animation */}
-        <div className="w-1/2 flex items-center justify-center bg-emerald-100 relative">
-          <motion.div
-            animate={{ y: [0, -30, 0] }}
-            transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
-            className="w-20 h-20 bg-emerald-600 rounded-full shadow-lg"
-          />
+          <div className="mt-8 text-center text-sm text-gray-500 ">
+            <span>Don't have an account?</span>
+            <a
+              href="#"
+              className="text-emerald-600 font-semibold hover:underline"
+            >
+              &nbsp;&nbsp;Sign Up
+            </a>
+          </div>
         </div>
       </div>
     </div>
