@@ -2,9 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
 const CreateTask = () => {
-
-    const [userData,setUserData] = useContext(AuthContext);
-  
+  const [userData, setUserData] = useContext(AuthContext);
 
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
@@ -17,28 +15,33 @@ const CreateTask = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-  setNewTask ( {title,
-    date,
-    description,
-    category,
-    active: false,
-    new_task: true,
-    failed: false,
-    completed: false,
-  }) 
-     
+    const task = {
+      title,
+      date,
+      description,
+      category,
+      active: false,
+      new_task: true,
+      failed: false,
+      completed: false,
+    };
 
-      const data = userData;
+    setNewTask(task);
 
-    data.forEach(function (elem) {
-      if (assignTo == elem.fname) {
-        elem.tasks.push(newTask);
+    // Find the employee and assign the task to their task list
+    const updatedUserData = userData.map((employee) => {
+      if (assignTo === employee.fname) {
+        // Add the task to the employee's tasks
+        employee.tasks.push(task);
+
+        // Update the taskNumbers for the employee
+        employee.taskNumbers.new_task += 1;
       }
+      return employee;
     });
 
-setUserData(data)   
-console.log(data);
-
+    // Update the context with the new userData
+    setUserData(updatedUserData);
 
     // Reset form fields
     setTitle("");
@@ -65,14 +68,12 @@ console.log(data);
             className="w-full p-3 bg-gray-200 border-[1.5px] border-emerald-600 rounded-xl outline-none placeholder-gray-400"
             type="text"
             placeholder="Task Title"
-            // required
           />
           <input
             value={date}
             onChange={(e) => setDate(e.target.value)}
             className="w-full p-3 text-gray-400 bg-gray-200 border-[1.5px] border-emerald-600 rounded-xl outline-none"
             type="date"
-            // required
           />
           <input
             value={assignTo}
@@ -80,7 +81,6 @@ console.log(data);
             className="w-full p-3 bg-gray-200 border-[1.5px] border-emerald-600 rounded-xl outline-none placeholder-gray-400"
             type="text"
             placeholder="Assign to (Employee Name)"
-            // required
           />
           <input
             value={category}
@@ -88,7 +88,6 @@ console.log(data);
             className="w-full p-3 bg-gray-200 border-[1.5px] border-emerald-600 rounded-xl outline-none placeholder-gray-400"
             type="text"
             placeholder="Category (e.g. Design, Development)"
-            // required
           />
         </div>
 
@@ -98,7 +97,6 @@ console.log(data);
             onChange={(e) => setDescription(e.target.value)}
             className="w-full p-3 bg-gray-200 border-[1.5px] border-emerald-600 rounded-xl outline-none placeholder-gray-400 h-48"
             placeholder="Task Description"
-            // required
           ></textarea>
           <button
             type="submit"
