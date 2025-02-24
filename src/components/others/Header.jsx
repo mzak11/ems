@@ -18,12 +18,11 @@ const Header = ({ data, changeUser }) => {
 
   // Show the logged-in user's name based on role
   const getUserName = () => {
-    if (data && data.role === 'admin') {
-      return 'Admin';
-      console.log(data)
-    } else if ( data) {
-      return data.fname; // Assuming each employee has a "name" field
-    }
+    if (data.role === 'admin') {
+      return 'Admin'  ;
+    } else if (data) {
+      return data.fname; // Assuming each employee has a "fname" field
+    }else
     return 'Guest'; // Default fallback
   };
 
