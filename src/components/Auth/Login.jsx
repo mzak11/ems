@@ -17,12 +17,12 @@ const Login = ({ handleLogin }) => {
   return (
     <div
       className="flex h-screen w-screen items-center justify-center bg-gradient-to-r from-gray-100 to-gray-100"
-      style={{
-        backgroundImage: `url(${BgImg})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }}
+      // style={{
+      //   backgroundImage: `url(${BgImg})`,
+      //   backgroundSize: "cover",
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundPosition: "center",
+      // }}
     >
       <div className="w-1/2 bg-transparent flex flex-col items-center justify-center p-10">
         <motion.h3
